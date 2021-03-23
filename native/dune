@@ -1,0 +1,4 @@
+(library
+ (name sharedlib_native)
+ (implements sharedlib)
+ (libraries unix))
