@@ -1,0 +1,4 @@
+(library
+ (name sharedlib_native)
+ (libraries unix tomorrow)
+ (wrapped false))

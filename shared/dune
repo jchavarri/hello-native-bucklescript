@@ -1,0 +1,3 @@
+(library
+ (name sharedlib)
+ (libraries sharedlib_native))

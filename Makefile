@@ -1,13 +1,22 @@
-.PHONY: js native clean
+.PHONY: install_js install_native clean_dune_bsb js native clean
 
 default:
 	@@echo "use 'make js' or 'make native'"
 
-js:
-	yarn bsb -make-world
+install_js:
+	esy @esy.js
 
-native:
-	esy dune build @all
+install_native:
+	esy @esy.native
+
+js:
+	esy @esy.js bsb -make-world
+
+clean_dune_bsb:
+	rm dune.bsb && rm dune
+
+native: clean_dune_bsb
+	esy @esy.native dune build @all
 
 clean:
 	esy dune clean

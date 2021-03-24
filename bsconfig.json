@@ -3,11 +3,14 @@
   "namespace": true,
   "sources": [
     {
-      "dir": "js",
-      "subdirs": true
+      "dir": "shared/js",
+      "subdirs": false
     }, {
       "dir": "shared",
-      "subdirs": true
+      "subdirs": false
+    }, {
+      "dir": "shared/tomorrow",
+      "subdirs": false
     }
   ],
   "package-specs": {
@@ -16,5 +19,5 @@
   },
   "refmt": 3,
   "suffix": ".bs.js",
-  "generate-merlin": true,
+  "generate-merlin": true
 }

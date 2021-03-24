@@ -3,3 +3,5 @@
 .merlin
 *.bs.js
 /_esy
+node_modules
+dune.bsb
