@@ -1,5 +1,5 @@
 /** Example of a module with a fixed interface and different
-implentation per platform. */
+implementation per platform. */
 
 let yesterday = () => {
   let t = Date.now();

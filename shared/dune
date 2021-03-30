@@ -1,3 +1,4 @@
 (library
  (name sharedlib)
- (libraries sharedlib_native))
+ (libraries tomorrow)
+ (virtual_modules date yesterday))

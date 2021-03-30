@@ -1,3 +1,3 @@
-(** Shared part of the library *)
+(** Shared utility *)
 
 let tomorrow timestamp = timestamp +. 86_400.
