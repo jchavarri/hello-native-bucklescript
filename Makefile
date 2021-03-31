@@ -13,7 +13,7 @@ js:
 	esy @esy.js bsb -make-world
 
 clean_dune_bsb:
-	rm dune.bsb && rm dune
+	rm -f dune.bsb && rm -f dune
 
 native: clean_dune_bsb
 	esy @esy.native dune build @all

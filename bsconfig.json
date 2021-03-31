@@ -3,13 +3,13 @@
   "namespace": true,
   "sources": [
     {
-      "dir": "shared/js",
+      "dir": "js",
       "subdirs": false
     }, {
       "dir": "shared",
       "subdirs": false
     }, {
-      "dir": "shared/tomorrow",
+      "dir": "tomorrow",
       "subdirs": false
     }
   ],

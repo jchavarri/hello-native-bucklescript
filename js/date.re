@@ -12,3 +12,10 @@ let tomorrow = () => {
   let tomorrow = Tomorrow.tomorrow(timestamp);
   Js.Date.fromFloat(tomorrow);
 }
+
+let yesterday = () => {
+  let t = now();
+  let d = Js.Date.getDate(t);
+  let y = Js.Date.setDate(t, d -. 1.);
+  Js.Date.fromFloat(y);
+};

@@ -9,3 +9,7 @@ let now () = Unix.time ()
 let tomorrow () =
   let t = now () in
   Tomorrow.tomorrow t
+
+  let yesterday () =
+    let t = now () in
+    t -. 86_400.

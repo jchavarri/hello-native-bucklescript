@@ -8,3 +8,6 @@ val now : unit -> t
 
 (** Returns the time for tomorrow. *)
 val tomorrow : unit -> t
+
+(** Returns the time for yesterday. *)
+val yesterday : unit -> t
