@@ -1,4 +1,0 @@
-(library
- (name sharedlib_js)
- (implements sharedlib)
- (libraries tomorrow))
