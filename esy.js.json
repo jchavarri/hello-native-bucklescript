@@ -1,11 +1,8 @@
 {
   "dependencies": {
-    "@opam/bucklescript": "*",
-    "@opam/ocamlfind": "1.8.1"
-  },
-  "resolutions": {
-    "@opam/bucklescript": "anmonteiro/bucklescript#9004597f4d997c942bc6c785ca2167b967ee6e0d",
-    "ocaml": "anmonteiro/ocaml#75f22c872451c66a4c4aadc43abee55697268a57"
+    "ocaml": "4.12.x",
+    "melange": "melange-re/melange",
+    "@opam/ocaml-lsp-server": "*"
   },
   "esy": {
     "buildsInSource": "unsafe"
