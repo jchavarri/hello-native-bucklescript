@@ -1,0 +1,84 @@
+;;;;{BSB GENERATED: NO EDIT
+(subdir ./tomorrow
+(rule
+(targets  tomorrow.ast)
+ (deps (:inputs  tomorrow.ml) )
+(action
+ (run bsc  -w a -bs-v 9.1.0  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  tomorrow-Sharedlib.cmj tomorrow-Sharedlib.cmi tomorrow-Sharedlib.cmt tomorrow.bs.js)
+ (mode (promote (until-clean) (only tomorrow.bs.js)))(deps (:inputs  tomorrow.ast)  (:ast_deps tomorrow.ast ) ../bsconfig.json ../.melange.eobjs/Sharedlib.cmi)
+(action
+ (progn (dynamic-run bsb_helper -bs-ns Sharedlib -root /home/javier.chavarri/code/hello-native-bucklescript -cwd ./tomorrow %{ast_deps}) (run bsc -bs-ns Sharedlib -I ../js -I ../shared -I . -I ../.melange.eobjs   -w a -bs-package-name sharedlib -bs-package-output es6:./tomorrow:.bs.js -o tomorrow-Sharedlib.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  tomorrow.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./shared
+(rule
+(targets  yesterday.ast)
+ (deps (:inputs  yesterday.ml) )
+(action
+ (run bsc  -w a -bs-v 9.1.0  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  yesterday.iast)
+ (deps (:inputs  yesterday.mli) )
+(action
+ (run bsc  -w a -bs-v 9.1.0  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  yesterday-Sharedlib.cmi yesterday-Sharedlib.cmti)
+ (deps (:inputs  yesterday.iast)  (:ast_deps yesterday.ast yesterday.iast) ../bsconfig.json ../.melange.eobjs/Sharedlib.cmi)
+(action
+ (progn (dynamic-run bsb_helper -bs-ns Sharedlib -root /home/javier.chavarri/code/hello-native-bucklescript -cwd ./shared %{ast_deps}) (run bsc -bs-ns Sharedlib -I ../js -I . -I ../tomorrow -I ../.melange.eobjs   -w a -o yesterday-Sharedlib.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  yesterday-Sharedlib.cmj yesterday-Sharedlib.cmt yesterday.bs.js)
+ (mode (promote (until-clean) (only yesterday.bs.js)))(deps (:inputs  yesterday.ast)  yesterday-Sharedlib.cmi (:ast_deps yesterday.ast yesterday.iast) ../bsconfig.json ../.melange.eobjs/Sharedlib.cmi)
+(action
+ (progn (dynamic-run bsb_helper -bs-ns Sharedlib -root /home/javier.chavarri/code/hello-native-bucklescript -cwd ./shared %{ast_deps}) (run bsc -bs-ns Sharedlib -bs-read-cmi -I ../js -I . -I ../tomorrow -I ../.melange.eobjs   -w a -bs-package-name sharedlib -bs-package-output es6:./shared:.bs.js -o yesterday-Sharedlib.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  yesterday.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./js
+(rule
+(targets  date.ast)
+ (deps (:inputs  date.re) )
+(action
+ (run bsc  -w a -bs-v 9.1.0  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  date-Sharedlib.cmj date-Sharedlib.cmi date-Sharedlib.cmt date.bs.js)
+ (mode (promote (until-clean) (only date.bs.js)))(deps (:inputs  date.ast)  (:ast_deps date.ast ) ../bsconfig.json ../.melange.eobjs/Sharedlib.cmi)
+(action
+ (progn (dynamic-run bsb_helper -bs-ns Sharedlib -root /home/javier.chavarri/code/hello-native-bucklescript -cwd ./js %{ast_deps}) (run bsc -bs-ns Sharedlib -I . -I ../shared -I ../tomorrow -I ../.melange.eobjs   -w a -bs-package-name sharedlib -bs-package-output es6:./js:.bs.js -o date-Sharedlib.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  yesterday_impl.ast)
+ (deps (:inputs  yesterday_impl.re) )
+(action
+ (run bsc  -w a -bs-v 9.1.0  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  yesterday_impl-Sharedlib.cmj yesterday_impl-Sharedlib.cmi yesterday_impl-Sharedlib.cmt yesterday_impl.bs.js)
+ (mode (promote (until-clean) (only yesterday_impl.bs.js)))(deps (:inputs  yesterday_impl.ast)  (:ast_deps yesterday_impl.ast ) ../bsconfig.json ../.melange.eobjs/Sharedlib.cmi)
+(action
+ (progn (dynamic-run bsb_helper -bs-ns Sharedlib -root /home/javier.chavarri/code/hello-native-bucklescript -cwd ./js %{ast_deps}) (run bsc -bs-ns Sharedlib -I . -I ../shared -I ../tomorrow -I ../.melange.eobjs   -w a -bs-package-name sharedlib -bs-package-output es6:./js:.bs.js -o yesterday_impl-Sharedlib.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  yesterday_impl.bs.js date.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+(subdir ./.melange.eobjs(rule
+(targets  Sharedlib.cmi)
+ (deps (:inputs  Sharedlib.mlmap) )
+(action (run bsc -w -49 -color always -no-alias-deps %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ )
+
+(data_only_dirs node_modules .melange.eobjs)
+(alias (name bsb_world))
+;;;;BSB GENERATED: NO EDIT}

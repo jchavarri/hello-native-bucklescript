@@ -3,3 +3,5 @@
 .merlin
 *.bs.js
 /_esy
+.melange.eobjs
+node_modules

@@ -8,6 +8,9 @@
     }, {
       "dir": "shared",
       "subdirs": true
+    }, {
+      "dir": "tomorrow",
+      "subdirs": false
     }
   ],
   "package-specs": {
